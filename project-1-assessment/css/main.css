@@ -1,0 +1,36 @@
+body {
+    background-color: aquamarine;
+}
+section {
+    display: flex;  /* defaults to row layout */
+    justify-content: center;  /* centers items horizontally in row layout */
+    align-items: center;  /* centers vertically in row layout */
+    flex-direction: row; will set layout to column instead of row
+}
+ 
+.button-one{
+    /* background-image: url ("Plus sign.jpg"); */
+    width: 100px;
+    height: 100px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+}
+.button-two{
+    width: 100px;
+    height: 100px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+}
+   .input-button{
+    width: 200px;
+    height: 100px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    flex-basis: 0;
+    text-size: 60px;
+
+   } 
+
+  
