@@ -1,0 +1,105 @@
+# CREATING A NODE FILE
+    ### make a new directory where you store files
+    ###run the npm init command or 
+    ###run the npm init -y command
+    ###create an index.js file to create an entry point
+    ###create a .gitignore file and all node_modules there 
+    ###write a console.log on the index.js file to make sure it is running
+    ###to run the node file, type in node [entry point file] index.js in the terminal
+    ###run the program by typing the node index.js command 
+
+
+# ADDING EXPRESS TO NODE FILE
+    ### run npm i express
+    ### import the express module by; const express = require('express');
+    ### Create an instance of an express app
+    ### type in const app = express();
+    ### Create a Home Route----
+    ###            app.get('/', function(req, res) {
+    ###            res.send('Hello, World!');
+    ###           });
+    ### type in a command for listening to local host 8000---
+    ### app.listen(8000)
+    ### run nodemon
+    ### visit localhost:8000 in your browser
+    ### Express CheatSheet
+    ### https://github.com/azat-co/cheatsheets/tree/master/express4
+
+ #   EXPRESS ROUTES  
+    ### Routes get the data from the back end and show it on the front end when you type in the routes' path. The look like the example below
+
+        app.get('/frasier', (req, res)=>{
+            res.send('Once in prep school, the Existentialist Club once named me 'Most Likely to Be')
+        })
+    ### You access what's been sending by looking for the local host / route name on the browser eg  http://localhost:3000/frasier
+
+## VIEWS FOLDER
+### This is where we store HTML files that we'll be using
+### When we connect the views folder to the index.js we use res.sendFile    ### instead of res.send
+
+## EJS( embedded javascript)
+### This is a template engine. A template is a view that allows us to inject javascript into HTML.
+### run npm i ejs to install ejs
+### We use res.render for the templates we create in the views folder
+
+## EJS LAYOUTS
+### Layouts create a boiler-plate that we use in all our ejs files
+### We install it using the command express-ejs-layouts
+
+## ENV files
+### 
+
+
+
+# INSTALLING AND USING SEQUELIZE
+## SET_UP PART ONE - getting the sequelize-cli tool (you only have to do ###this once)
+###We need install a generator so we can use sequelize. Much like our other ###terminal apps, we will only install this once.
+###npm install -g sequelize-cli
+
+## SET-UP PART TWO - starting a new node project
+###Let's build our first app using Sequelize! First we need to create a node app and include our dependencies. All in terminal:
+### Create a new folder and add an index.js and .gitignore and initialize ### the repository
+### mkdir userapp
+### cd userapp
+### npm init -y
+### touch index.js
+### echo "node_modules" >> .gitignore
+### Add/save dependencies (sequelize needs pg for Postgres)
+### npm install pg sequelize
+### Initialize a sequelize project
+### sequelize init
+
+## SET-UP PART THREE- config.json, models and migrations:
+### In the text editor we should now see a bunch of new folders. We now have config, migrations and models. This was created for us when we ran sequelize init.
+
+### Let's start in the config folder and open up the config.json file. This file contains information about the database we are using as well as how to connect.
+
+### If the dialects defaults to mySql, change them to postgres
+### change the database names
+###If you have a username and password for your Postgres server, you must include those as well. 
+
+### Once this is complete, let's move to the models folder.
+
+##CREATE A DATABASE INSIDE OF POSTGRES
+
+### The sequelize CLI has an equivalent command to createdb----sequelize db:create userapp_development
+
+##CREATE A MODEL AND A MATCHING MIGRATION
+###In order to create a model, we start with sequelize model:create and then specify the name of the model using the --name flag. Make sure your models are always singular (table name in plural, model name in singular). After passing in the --name flag followed by the name of your model, you can then add an --attributes flag and pass in data about your model. Generating the model also generates a corresponding migration. You only need to do this once for your model.
+###sequelize model:create --name user --attributes firstName:string,lastName:string,age:integer,email:string
+
+###If you want to make changes to your model after generating it - all you have to do is make a change in this file and save it before running the migrate command.
+###And a corresponding migration:
+### migrations/*-create-user.js
+
+##Running the migration
+###To run the migration, use the following command----sequelize db:migrate
+
+###If you need to undo the last migration, this command will undo the last migration that was applied to the database.
+###sequelize db:migrate:undo
+
+###Use the psql shell to verify that your database and table was created:
+###psql
+###\l
+###\c userapp_development
+###\dt
