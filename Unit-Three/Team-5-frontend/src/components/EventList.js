@@ -7,12 +7,12 @@ console.log(props.location)
         return (
             
             <div>
-                <h1>Star Ships</h1>
+                <h1>Your Events</h1>
                 <div>
-                    ship name: {shipInfo.name}
+                    ship name: {eventInfo.name}
                 </div>
                 <div>
-                  ship model: {shipInfo.model}
+                  ship model: {eventInfo.model}
                 </div>
             </div>
         )

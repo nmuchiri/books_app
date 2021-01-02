@@ -42,22 +42,16 @@ const Home = () => {
     eventData.map((data, i) => {
       console.log(data)
       return (
-        <div class="col-6 col-md-4">
-          {/* <div class="card">
-            <img src={data.images[6].url} class="card-img-top" alt="Eagles Group"></img>
-            <div class="card-body">
-              <h5 class="card-title">{data.name}</h5>
-              <p class="card-text">{data._embedded.venues[0].name}<br></br><span>{data.dates.start.localDate}</span></p> */}
-              <Link to={{
-                pathname: `/savedevents/${data.id}`,
+        <div >
+              
+            <Link to={{
+                pathname: `/savedevents`,
                 state: { data }
               }}
                 key={data.name}
               >
-                See your saved Events
+                See Your Events
                             </Link>
-            {/* </div>
-          </div> */}
         </div>
       )
     })
