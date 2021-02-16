@@ -1,18 +1,20 @@
 import React, { useState, useRef } from 'react'
-
+import { useHistory } from "react-router-dom"
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
-// import CheckButton from 'react-validation/build/button'
 import FormGroup from './common/FormGroup'
 import { Button} from 'semantic-ui-react'
 
 import { save } from '../services/book.service'
 
+
 const CreateBook = ()=>{
+    let history = useHistory()
 
     const [title, setTitle] = useState('')
     const [author, setAuthor] = useState('')
     const [genre, setGenre] = useState('')
+    
 
     const onChangeTitle = (e) => {
         const title= e.target.value
@@ -31,15 +33,14 @@ const CreateBook = ()=>{
     const handleSave = (e) => {
         e.preventDefault()
         save(
-            // bookId,
             title,
             author,
             genre
-        ).then (res => {
-            console.log(res)
-        })
-        // history.push('/')
-        // window.location.reload()
+        ).then(()=>{
+            history.push('/')
+       
+       })
+        
     }
 
     return (
@@ -83,7 +84,7 @@ const CreateBook = ()=>{
                         />
                     </FormGroup>
 
-                    <Button>Save Book</Button>
+                    <Button onSubmit={handleSave}>Save Book</Button>
 
                     {/* {message && (
                         <div className="form-group">

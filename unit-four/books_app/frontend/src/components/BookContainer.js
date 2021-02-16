@@ -1,19 +1,11 @@
 import React, { useState, useEffect } from 'react'
 import { getAllBooks } from '../services/book.service'
-import { Card, Button} from 'semantic-ui-react'
-import { useHistory } from "react-router-dom";
-import { deleteBook } from "../services/book.service"
+import { Card} from 'semantic-ui-react'
+import { Link } from "react-router-dom";
+import  axios  from 'axios'
 
 
 const BookContainer = () => {
-
-    const deleteSavedBook = (e) => {
-        let res = deleteBook(e.target.parentNode.id)
-        // history.push('/')
-        // window.location.reload()
-        console.log(res)
-      }
-
 
     const [books, setBooks] = useState(null)
     useEffect(() => {
@@ -26,6 +18,7 @@ const BookContainer = () => {
         }
         )
     },[])
+
     return(
         <div>
             {books ? (
@@ -40,10 +33,15 @@ const BookContainer = () => {
                               <Card.Description>{book.author}</Card.Description>
                               <Card.Description>{book.genre}</Card.Description>
                             </Card.Content>
-                            <Card.Content extra>
-                              <Button onClick={deleteSavedBook}>DeleteBook</Button>
-                              <Button>Edit Book</Button>
-                            </Card.Content>
+                                <Link
+                                    to={{
+                                        pathname: `/books/${book.id}`,
+                                        state: { book }
+                                    }}
+                                    key={book.id}
+                                    >
+                                    More Information
+                                </Link>
                           </Card>
                         ))}
                     </div>
