@@ -3,7 +3,7 @@ import React, { useState, useRef } from 'react'
 import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 import CheckButton from 'react-validation/build/button'
-import AuthService from '../services/auth.service'
+import { login} from '../services/auth.service'
 
 // Component
 import FormGroup from "./common/FormGroup";
@@ -55,18 +55,21 @@ const Login = (props) => {
         //validator stores errors and we can check if error exists
         console.log(checkBtn.current.context._errors)
         if (checkBtn.current.context._errors.length === 0) {
-            AuthService.login(username, password)
+            login(username, password)
                 .then(
                     () => {
-                        props.history.push("/")
-                        window.location.reload()
+                        props.history.push("/books")
+                        // window.location.reload()
+                        console.log(username)
                     },
                     //another way of formatting a .catch()
                     (error) => {
+                        console.log(error)
                         //Setting loading to false and return the error
                         setLoading(false)
                         //checking
-                        setMessage(error)
+                        // setMessage(error)
+                        
                     }
                 )
         } else {

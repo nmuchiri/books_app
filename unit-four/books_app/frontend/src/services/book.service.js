@@ -3,7 +3,14 @@ const BOOK_API = "http://localhost:8000"
 
 
 export const getAllBooks = () => {
-    return axios.get(BOOK_API + '/api/v1/books')
+   axios.get("localhost:8000/api/v1/books/", {withCredentials: true})
+    .then((res)=>{
+        console.log(res.data)
+        return res
+    }).catch (err =>{
+            console.log(err)
+        })
+
 }
 
 // delete book from the database
@@ -11,8 +18,10 @@ export const deleteBook = (id) => {
     return axios({
         method: 'DELETE',
         url: BOOK_API + '/api/v1/books/' + id
+
     },
-    {_id: id}
+    {_id: id},
+    {withCredentials: true}
     )
     // ).then((res)=>{
     //     return res
@@ -25,7 +34,7 @@ export const save = (title, author, genre) => {
         title,
         author,
         genre
-    })
+    }, {withCredentials: true})
     
 }
 
@@ -37,7 +46,7 @@ export const updateBook = (title, author, genre, id) => {
         author:author,
         genre:genre,
         id: id
-    })
+    }, {withCredentials: true})
     // .then (res => {
     //     console.log(res)
     // })

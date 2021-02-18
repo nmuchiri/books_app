@@ -8,10 +8,12 @@ import SignUp from './components/SignUp'
 import Login from './components/Login'
 
 import './css/App.css';
+import Layout from './components/common/Layout'
 
 const App = () => {
   return (
     <>
+    <Layout>
       <Switch> 
       <Route exact path={["/", "/home"]} component={BookContainer} /> 
       <Route exact path="/books" component={CreateBook} />
@@ -20,6 +22,7 @@ const App = () => {
       <Route exact path="/signup" component={SignUp} />
       <Route exact path="/login" component={Login} />
       </Switch> 
+    </Layout> 
     </>
   );
 };

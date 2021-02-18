@@ -9,14 +9,16 @@ const BookContainer = () => {
 
     const [books, setBooks] = useState(null)
     useEffect(() => {
-        getAllBooks().then(response => {
-            setBooks(response.data.data)
-            // console.log(response.data.data)
-        },
-        (error) => {
-            console.log(error)
-        }
-        )
+        let res= getAllBooks()
+        console.log(res)
+        // getAllBooks().then(response => {
+        //     setBooks(response.data.data)
+        //     // console.log(response.data.data)
+        // },
+        // (error) => {
+        //     console.log(error)
+        // }
+        // )
     },[])
 
     return(

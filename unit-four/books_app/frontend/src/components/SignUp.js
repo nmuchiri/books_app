@@ -11,7 +11,7 @@ import FormGroup from './common/FormGroup'
 import ButtonSpinner from './common/ButtonSpinner'
 
 //helper
-import AuthService from '../services/auth.service'
+import {signup}from '../services/auth.service'
 
 
 //Function given to react-validator
@@ -95,7 +95,7 @@ const SignUp = (props) => {
 
         //validator stores errors and we can check if error exists
         if (checkBtn.current.context._errors.length === 0) {
-            AuthService.signup(username, email, password).then((response) => {
+            signup(username, email, password).then((response) => {
                 setMessage(response.data.message)
                 setSuccessful(true)
                 setTimeout(()=>{
@@ -104,7 +104,8 @@ const SignUp = (props) => {
                 },1000)
             },
                 (error) => {
-                    setMessage(error)
+                    console.log(error.error)
+                    setMessage(error.error)
                     setSuccessful(false)
                 })
         }
