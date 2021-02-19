@@ -18,13 +18,20 @@ export const login = (username, password) => {
     })
 }
 
-export const logout = () => {
-    return axios.get(BOOK_API + '/api/v1/appusers/logout',{withCredentials: true})
-}
 
 // CURRENT USER
 export const getCurrentUser = () => {
-    return axios.get(BOOK_API + '/api/v1/appusers/current', {withCredentials: true})
+    axios.get(BOOK_API + '/api/v1/appusers/current', 
+    {withCredentials: true}
+    ).then((res)=>{
+        console.log(res)
+            return res
+    })
+}
+
+
+export const logout = () => {
+    return axios.get(BOOK_API + '/api/v1/appusers/logout',{withCredentials: true})
 }
 
 // export default {

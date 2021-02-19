@@ -15,7 +15,7 @@ console.log(props.location.state)
     const deleteSavedBook = (e) => {
         console.log(bookInfo.id)
         deleteBook(bookInfo.id).then(()=>{
-             props.history.push('/')
+             props.history.push('/profile')
         
         })
       }

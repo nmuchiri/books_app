@@ -57,8 +57,9 @@ const Login = (props) => {
         if (checkBtn.current.context._errors.length === 0) {
             login(username, password)
                 .then(
-                    () => {
+                    (res) => {
                         props.history.push("/books")
+                        console.log(res)
                         // window.location.reload()
                         console.log(username)
                     },
@@ -81,7 +82,7 @@ const Login = (props) => {
         <div className='col-md-12'>
             <div className='card card-container'>
                 <img
-                    src="https://www.gstatic.com/accounts/ui/avatar_2x.png"
+                    src="https://i.pinimg.com/originals/d6/59/57/d6595769c6fdc61d1e7cccece1024cf2.png"
                     alt="profile-img"
                     className="profile-img-card"
                 />

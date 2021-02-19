@@ -37,7 +37,7 @@ const CreateBook = ()=>{
             author,
             genre
         ).then(()=>{
-            history.push('/')
+            history.push('/profile')
        
        })
         
@@ -47,7 +47,7 @@ const CreateBook = ()=>{
         <div className="col-md-12">
             <div className="card card-container">
                 <img
-                    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                    src="https://content.storymagic.co/cdn/website/assets/sign-in/parentLogin-graphic.svg"
                     alt="book-img"
                     className="book-img-card"
                 />

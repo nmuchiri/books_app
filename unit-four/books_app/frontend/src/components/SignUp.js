@@ -116,7 +116,7 @@ const SignUp = (props) => {
         <div className="col-md-12">
             <div className="card card-container">
                 <img
-                    src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
+                    src="https://i.pinimg.com/originals/d6/59/57/d6595769c6fdc61d1e7cccece1024cf2.png"
                     alt="profile-img"
                     className="profile-img-card"
                 />

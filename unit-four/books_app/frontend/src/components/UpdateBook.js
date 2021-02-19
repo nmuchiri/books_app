@@ -35,7 +35,7 @@ const UpdateBook =(props)=>{
                 savedBook.genre,
                 id
         ).then(()=>{
-            props.history.push('/')
+            props.history.push('/profile')
           }).catch(err =>{
             console.log(err)
           })

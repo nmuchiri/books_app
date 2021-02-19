@@ -2,16 +2,16 @@ import axios from 'axios'
 const BOOK_API = "http://localhost:8000"
 
 
-export const getAllBooks = () => {
-   axios.get("localhost:8000/api/v1/books/", {withCredentials: true})
-    .then((res)=>{
-        console.log(res.data)
-        return res
-    }).catch (err =>{
-            console.log(err)
-        })
+// export const getAllBooks = () => {
+//    axios.get(BOOK_API + '/api/v1/books/', )
+//     .then((res)=>{
+//         console.log(res.data)
+//         return res.data
+//     }).catch (err =>{
+//             console.log(err)
+//         })
 
-}
+// }
 
 // delete book from the database
 export const deleteBook = (id) => {
@@ -34,7 +34,9 @@ export const save = (title, author, genre) => {
         title,
         author,
         genre
-    }, {withCredentials: true})
+    }, 
+    {withCredentials: true}
+    )
     
 }
 
@@ -46,7 +48,9 @@ export const updateBook = (title, author, genre, id) => {
         author:author,
         genre:genre,
         id: id
-    }, {withCredentials: true})
+    }, 
+    {withCredentials: true}
+    )
     // .then (res => {
     //     console.log(res)
     // })
