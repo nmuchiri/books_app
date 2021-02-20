@@ -1,5 +1,6 @@
 import axios from 'axios'
 
+
 const BOOK_API = "http://localhost:8000"
 
 // function to register a new User
@@ -16,7 +17,15 @@ export const login = (username, password) => {
         username,
         password
     })
+    .then((data) => {
+        console.log(data)
+            // window.location.replace('/profile'
+    })
+    .catch((err) => {
+        console.log("error logging in user", err);
+    })
 }
+
 
 
 // CURRENT USER

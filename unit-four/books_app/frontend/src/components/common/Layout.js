@@ -40,24 +40,25 @@ const Layout = (props) => {
                         Profile
                     </Link>
                     </div>
-                    {currentUser ?
-                        <div className='navbar-nav ml-auto'>
-                            
-                            <li className='nav-item'>
-                                <Link to={'/'}>
-                                    {/* {currentUser.username}'s Profile */}
-                                </Link>
-                                <div className='navbar-nav mr-auto'>
+                    <div className='navbar-nav mr-auto'>
                                     <li className='nav-item'>
                                     <Link to={'/books'} className='nav-link'>
                                 Add a Book
                                 </Link>
                         </li>
                     </div>
+                    {/* {currentUser ? */}
+                        <div className='navbar-nav ml-auto'>
+                            
+                            <li className='nav-item'>
+                                <Link to={'/'}>
+                                    {/* {currentUser.username}'s Profile */}
+                                </Link>
+                                
                                 <a href='/login' className='nav-item nav-link block' onClick={logOut}>Logout</a>
                             </li>
                         </div> 
-                         : 
+                         {/* :  */}
                         <div className='navbar-nav ml-auto'>
                             <li className='nav-item'>
                                 <Link to={'/login'} className='nav-link'>
@@ -71,7 +72,7 @@ const Layout = (props) => {
                             </li>
                         </div>
 
-                        } 
+                        {/* }  */}
                 </div>
             </nav>
             <div className='container mt-3'>

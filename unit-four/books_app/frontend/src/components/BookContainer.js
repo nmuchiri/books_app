@@ -36,12 +36,13 @@ const BookContainer = () => {
     
 
     return(
-        <div>
-            {books ? (
+        <div >
+            
+            {books ? ( 
                 <>
                 <h2>My Lovely Books</h2>
                 {books.length > 0 ? (
-                    <div>
+                    <div className="book-container">
                         {books.map(book => (
                             <Card key={book.id}>
                             <Card.Content>
@@ -56,7 +57,7 @@ const BookContainer = () => {
                                     }}
                                     key={book.id}
                                     >
-                                    My Secret Thoughts About This Book
+                                    Thoughts About This Book
                                 </Link>
                           </Card>
                         ))}

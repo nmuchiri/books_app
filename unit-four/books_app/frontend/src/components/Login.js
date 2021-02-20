@@ -4,14 +4,13 @@ import Form from 'react-validation/build/form'
 import Input from 'react-validation/build/input'
 import CheckButton from 'react-validation/build/button'
 import { login} from '../services/auth.service'
+import axios from 'axios'
 
 // Component
 import FormGroup from "./common/FormGroup";
 import ButtonSpinner from './common/ButtonSpinner'
 
-// Helper
-// import { resMessage } from '../utilities/functions.utilities'
-
+const BOOK_API = "http://localhost:8000"
 //function give to react-validator
 const required = (value) => {
     if (!value) {
@@ -56,23 +55,23 @@ const Login = (props) => {
         console.log(checkBtn.current.context._errors)
         if (checkBtn.current.context._errors.length === 0) {
             login(username, password)
-                .then(
-                    (res) => {
-                        props.history.push("/books")
-                        console.log(res)
-                        // window.location.reload()
-                        console.log(username)
-                    },
-                    //another way of formatting a .catch()
-                    (error) => {
-                        console.log(error)
-                        //Setting loading to false and return the error
-                        setLoading(false)
-                        //checking
-                        // setMessage(error)
+           
+                // .then(res => {
+                         props.history.push("/books")
+                //         console.log(res)
+                //         console.log(username)
+                //     },
+                //     //another way of formatting a .catch()
+                //     (error) => {
+                //         console.log("@@@@@@@@@@@@@@@@@@@")
+                //         console.log(error)
+                //         //Setting loading to false and return the error
+                //         setLoading(false)
+                //         //checking
+                //         // setMessage(error)
                         
-                    }
-                )
+                //     }
+                // )
         } else {
             setLoading(false)
         }
