@@ -52,10 +52,13 @@ app.register_blueprint(book_users, url_prefix= '/api/v1/book_users')
 
 
 
-# The default URL ends in / ("my-website.com/").
-# @app.route('/')
-# def index():
-#     return 'hi'
+@app.route('/')
+def index():
+    return app.send_static_file('index.html')
+
+@app.errorhandler(404)
+def not_found(e):
+    return app.send_static_file('index.html')    
 
 # Run the app when the program starts!
 if __name__ == '__main__':
